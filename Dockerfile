@@ -27,9 +27,9 @@ FROM node:22-alpine
 WORKDIR /app
 
 # Copy built application from .svelte-kit directory
-COPY --from=builder /app/build build/
-COPY --from=builder /app/node_modules node_modules/
-COPY package.json .
+COPY --from=builder /app/build ./build
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/package.json .
 
 # These commands copy the necessary files from the builder stage:
 # - The compiled application from the build directory
